@@ -136,7 +136,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="891a_RUHO6Xa2_Dv9G4C-20" value="Database access established" style="fillColor=#FAE5C7;strokeColor=#0F8B8D;labelBackgroundColor=none;fontColor=#143642;" parent="1" vertex="1">
-          <mxGeometry x="145" y="823" width="875" height="49" as="geometry" />
+          <mxGeometry x="130" y="823" width="875" height="49" as="geometry" />
         </mxCell>
         <mxCell id="891a_RUHO6Xa2_Dv9G4C-21" value="&lt;b&gt;&lt;font style=&quot;font-size: 29px;&quot;&gt;Sequence diagram Connect DB&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#d0cee2;strokeColor=#56517e;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="110" y="60" width="930" height="50" as="geometry" />
