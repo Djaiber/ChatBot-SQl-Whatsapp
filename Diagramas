@@ -184,8 +184,43 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="JYmVITOWhcFZj2cLISSU-1" value="&lt;b&gt;&lt;font&gt;&lt;span style=&quot;font-size: 29px;&quot;&gt;Communication&amp;nbsp;diagram Connect DB&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#d0cee2;strokeColor=#56517e;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="JYmVITOWhcFZj2cLISSU-1" value="&lt;b&gt;&lt;font&gt;&lt;span style=&quot;font-size: 29px;&quot;&gt;Communication&amp;nbsp;diagram Connect DB&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#d0cee2;strokeColor=#56517e;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="110" y="60" width="930" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9_GUQWVP0tWp5IL21UPP-1" value="User" style="ellipse;aspect=fixed;strokeWidth=2;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="322" y="230" width="47" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="9_GUQWVP0tWp5IL21UPP-2" value="WhatsApp" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="385" width="131" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="9_GUQWVP0tWp5IL21UPP-3" value="Auth Service" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="620" y="590" width="150" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="9_GUQWVP0tWp5IL21UPP-4" value="VPN" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="194" y="580" width="89" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="9_GUQWVP0tWp5IL21UPP-5" value="Database" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="470" y="710" width="126" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="9_GUQWVP0tWp5IL21UPP-6" value="1: Opens WhatsApp&#xa;2: Scans QR code&#xa;13: Send database query" style="curved=1;startArrow=block;endArrow=block;exitX=0.49;exitY=1;entryX=0.5;entryY=-0.01;rounded=0;" edge="1" parent="1" source="9_GUQWVP0tWp5IL21UPP-1" target="9_GUQWVP0tWp5IL21UPP-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9_GUQWVP0tWp5IL21UPP-7" value="3: Request QR code&#xa;4: Generate &amp;amp; send QR code&#xa;5: Display QR code&#xa;6: Send QR scan data&#xa;11: Send access confirmation&#xa;12: Show successful connection&#xa;14: Display results" style="curved=1;startArrow=block;endArrow=block;exitX=0.5;exitY=0.98;entryX=0.5;entryY=0;rounded=0;" edge="1" parent="1" source="9_GUQWVP0tWp5IL21UPP-2" target="9_GUQWVP0tWp5IL21UPP-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9_GUQWVP0tWp5IL21UPP-8" value="7: Validate QR code&#xa;8: Request database access&#xa;9: Grant access token" style="curved=1;startArrow=block;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=-0.01;rounded=0;" edge="1" parent="1" source="9_GUQWVP0tWp5IL21UPP-3" target="9_GUQWVP0tWp5IL21UPP-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9_GUQWVP0tWp5IL21UPP-9" value="10: Forward query request&#xa;15: Return query results" style="curved=1;startArrow=block;endArrow=block;exitX=0.5;exitY=0.98;entryX=0.49;entryY=0.01;rounded=0;" edge="1" parent="1" source="9_GUQWVP0tWp5IL21UPP-4" target="9_GUQWVP0tWp5IL21UPP-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
