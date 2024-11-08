@@ -2,6 +2,7 @@ import { join } from 'path'
 import { createBot, createProvider, createFlow, addKeyword, utils } from '@builderbot/bot'
 import { MemoryDB as Database } from '@builderbot/bot'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
+import { fetchQueryResult } from './complements/peticiontypescript' 
 
 const PORT = process.env.PORT ?? 3008
 
@@ -19,22 +20,39 @@ const discordFlow = addKeyword<Provider, Database>('doc').addAnswer(
     }
 )
 
-const welcomeFlow = addKeyword<Provider, Database>(['jaiber'])
+const welcomeFlow = addKeyword<Provider, Database>(['frasetelacambio'])
     .addAnswer(`🙌 Hello welcome to this *Chatbot*`)
-    .addAnswer(
-        [
-            'I share with you the following links of interest about the project',
-            '👉 *doc* to view the documentation',
-        ].join('\n'),
-        { delay: 800, capture: true },
-        async (ctx, { fallBack }) => {
-            if (!ctx.body.toLocaleLowerCase().includes('doc')) {
-                return fallBack('You should type *doc*')
-            }
-            return
-        },
-        [discordFlow]
-    )
+    // .addAnswer(
+    //     [
+    //         'I share with you the following links of interest about the project',
+    //         '👉 *doc* to view the documentation',
+    //     ].join('\n'),
+    //     { delay: 800, capture: true },
+    //     async (ctx, { fallBack }) => {
+    //         if (!ctx.body.toLocaleLowerCase().includes('doc')) {
+    //             return fallBack('You should type *doc*')
+    //         }
+    //         return
+    //     },
+    //     [discordFlow]
+    // )
+    .addAnswer(`Ask about database`, { capture: true }, async (ctx, { state }) => {
+        // Llamar a fetchQueryResult y esperar su resolución
+        const response = await fetchQueryResult(ctx.body);
+        
+        // Extraer solo el valor de sqlQuery
+        const answer_sql = response.Answer;
+        const sqlQuery = response.Query_Sql;
+        
+        // Mostrar el valor de sqlQuery en la consola
+        console.log('SQL Query:', sqlQuery);
+        const answer_db_oficial = `${answer_sql} \n\n\n🔻🔻 Query creada y usada 🔻🔻\n\n${sqlQuery}`
+        // Guardar solo el valor de sqlQuery en el estado
+        await state.update({ answer_db: answer_db_oficial });
+    })
+    .addAction(async (_, { flowDynamic, state }) => {
+        await flowDynamic(`${state.get('answer_db')}`)
+    })
 
 const registerFlow = addKeyword<Provider, Database>(utils.setEvent('REGISTER_FLOW'))
     .addAnswer(`Cual es tu nombre?`, { capture: true }, async (ctx, { state }) => {
